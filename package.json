@@ -1,0 +1,32 @@
+{
+  "name": "webaccess-actions",
+  "version": "0.0.1",
+  "description": "WebAccess Actions",
+  "main": "index.js",
+  "scripts": {
+    "action": "node ."
+  },
+  "bin": {
+    "webaccess-actions": "index.js"
+  },
+  "author": {
+    "name": "SorinGFS",
+    "url": "https://github.com/SorinGFS"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SorinGFS/webaccess-actions.git"
+  },
+  "homepage": "https://github.com/SorinGFS/webaccess-actions#readme",
+  "bugs": {
+    "url": "https://github.com/SorinGFS/webaccess-actions/issues"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "commander": "^8.2.0",
+    "npm": "7.24.2"
+  },
+  "dependencies": {
+    "webaccess-base": "0.0.1"
+  }
+}
