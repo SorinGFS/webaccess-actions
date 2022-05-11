@@ -12,21 +12,21 @@ const { program } = require('commander');
 program.version('0.0.1');
 
 program
-    .description('Access Proxy Plugin Installer.')
-    .requiredOption('-p, --provider-name <string>', 'provider-name arg as required in auth.provider.name')
-    .option('-v, --provider-version <semantic version string>', 'provider-version arg as required in npm install ${provider-name}-access-proxy@provider-version, if any');
+    .description('WebAccess Plugin Installer.')
+    .requiredOption('-p, --provider-name <string>', 'provider name arg as required in auth.provider.name')
+    .option('-v, --provider-version <semantic version string>', 'provider version arg as required in npm install webaccess-$providerName@providerVersion, if any');
 
 program.parse(process.argv);
 const options = program.opts();
 
 const providerName = options.providerName;
-const provider = options.providerVersion ? `${providerName}-access-proxy@${options.providerVersion}` : `${providerName}-access-proxy`;
+const provider = options.providerVersion ? `webaccess-${providerName}@${options.providerVersion}` : `webaccess-${providerName}`;
 const pathResolveArgs = ['server', 'proxy', providerName];
 const content = "'use strict';\n" + 
-                '// access-proxy plugin\n' + 
-                `module.exports = require('${providerName}-access-proxy');\n`;
+                '// webaccess plugin\n' + 
+                `module.exports = require('webaccess-${providerName}');\n`;
 
-console.log(`Installing Access Proxy Plugin ${providerName.toUpperCase()}...`);
+console.log(`Installing WebAccess Plugin ${providerName.toUpperCase()}...`);
 
 npm.load((error) => {
     if (error) return console.log(error);
