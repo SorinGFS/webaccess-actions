@@ -1,6 +1,6 @@
 {
   "name": "webaccess-actions",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "WebAccess Actions",
   "main": "index.js",
   "scripts": {
