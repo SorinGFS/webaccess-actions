@@ -27,6 +27,6 @@
     "npm": "7.24.2"
   },
   "dependencies": {
-    "webaccess-base": "1.0.2"
+    "webaccess-base": "1.0.3"
   }
 }
