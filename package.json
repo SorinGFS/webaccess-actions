@@ -21,12 +21,5 @@
   "bugs": {
     "url": "https://github.com/SorinGFS/webaccess-actions/issues"
   },
-  "license": "MIT",
-  "devDependencies": {
-    "commander": "^8.2.0",
-    "npm": "7.24.2"
-  },
-  "dependencies": {
-    "webaccess-base": "1.0.3"
-  }
+  "license": "MIT"
 }
