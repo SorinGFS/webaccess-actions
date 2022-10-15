@@ -8,8 +8,8 @@
 // });
 const appConfig = require('../../../../config/app');
 const plugins = appConfig.plugins || [];
-const run = require('../../run');
-const fs = require('webaccess-base/fs');
+const cli = require('zerodep/node/cli');
+const fs = require('zerodep/node/fs');
 const { program } = require('commander');
 
 program
@@ -36,7 +36,7 @@ if (plugins.filter((item) => item.name === `webaccess-${providerName}`).length) 
 plugins.push({ name: `webaccess-${providerName}`, type: 'webaccess-proxy' });
 // perform the action
 (async () => {
-    await run(`npm install ${provider}`);
+    await cli(`npm install ${provider}`);
     fs.writeFile(pluginFilePath, content);
     fs.writeFile(appConfigPath, JSON.stringify(Object.assign({}, appConfig, { plugins }), null, 4));
     console.log(`Plugin <webaccess-${providerName}> successfully installed!`);

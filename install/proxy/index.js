@@ -8,8 +8,8 @@
 // });
 const appConfig = require('../../../../config/app');
 const plugins = appConfig.plugins || [];
-const run = require('../../run');
-const fs = require('webaccess-base/fs');
+const cli = require('zerodep/node/cli');
+const fs = require('zerodep/node/fs');
 const { program } = require('commander');
 
 program
@@ -36,7 +36,7 @@ if (plugins.filter((item) => item.name === packageName).length) {
 plugins.push({ name: packageName, type: 'proxy' });
 // perform the action
 (async () => {
-    await run(`npm install ${package}`);
+    await cli(`npm install ${package}`);
     fs.writeFile(pluginFilePath, content);
     fs.writeFile(appConfigPath, JSON.stringify(Object.assign({}, appConfig, { plugins }), null, 4));
     console.log(`Plugin <${packageName}> successfully installed!`);

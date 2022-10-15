@@ -3,8 +3,8 @@
 
 const appConfig = require('../../../../config/app');
 const plugins = appConfig.plugins || [];
-const run = require('../../run');
-const fs = require('webaccess-base/fs');
+const cli = require('zerodep/node/cli');
+const fs = require('zerodep/node/fs');
 const { program } = require('commander');
 
 program
@@ -24,7 +24,7 @@ if (plugins.filter((item) => item.name === `webaccess-${providerName}`).length) 
     const filtered = plugins.filter((item) => item.name !== `webaccess-${providerName}`);
     const result = filtered.length ? Object.assign({}, appConfig, { filtered }) : appConfig;
     (async () => {
-        await run(`npm uninstall webaccess-${providerName}`);
+        await cli(`npm uninstall webaccess-${providerName}`);
         fs.removeDir(fs.pathDirName(pluginFilePath));
         fs.writeFile(appConfigPath, JSON.stringify(result, null, 4));
         console.log(`Plugin <webaccess-${providerName}> successfully uninstalled!`);
